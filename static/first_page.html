@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart-E website</title>
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    /* Style the header */
+    header {
+      background-color: rgb(71, 135, 120);
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    }
+
+    /* Create two columns/boxes that floats next to each other */
+    nav {
+      float: left;
+      width: 30%;  
+      height: fit-content;
+      height: 300px; /* only for demonstration, should be removed */
+      background: rgb(204, 205, 198);
+      padding: 30px;
+    }
+
+    #buttons li {
+      float: left;
+      list-style: none;
+      text-align: center;
+      background-color: rgb(53, 94, 59);
+      margin-right: 30px;
+      width: 150px;
+      line-height: 50px;
+      border: 2px solid black;
+      border-radius: 5px;
+    }
+
+    #buttons li a {
+      text-decoration: none;
+      color: white;
+      display: block;
+    }
+
+    #buttons li a:hover {
+      text-decoration: none;
+      color: black;
+      background-color: rgb(175, 225, 175);
+    }
+
+    /* Style the list inside the menu */
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    article {
+      float: left;
+      padding: 20px;
+      width: 70%;
+      height: fit-content;
+      background-color: rgb(232, 233, 235);
+      height: 300px; /* only for demonstration, should be removed */
+    }
+
+    /* Clear floats after the columns */
+    section::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Style the footer */
+    footer {
+      background-color: rgb(71, 135, 120);
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+    @media (max-width: 600px) {
+      nav, article {
+        width: 100%;
+        height: auto;
+      }
+    }
+    </style>
+  </head>
+  <body>
+
+  <header>
+    <h2>Cart-E</h2>
+  </header>
+
+  <section>
+    <nav>
+      <ul id="buttons">
+          <li><a href="./home.html">HOME</a></li>
+          <li><a href="./svg_map">MAP</a></li>
+          <li><a href="./location.html">FIND CART</a></li>
+          <li><a href="./contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+    <article>
+      <h1>In-door Location Tracker</h1>
+      <p>Our invention originated from the wish to track the hidden carts inside a building, since many people don't feel obligated to return them after usage. We aim to design and implement an indoor object tracking device -- Cart-E.</p>
+      <p>Cart-E is specifically designed to track indoor positions. Instead of relying on GPS signals, which become ambiguous in-door attenuated by roofs and walls, Cart-E uses open-source information such as WIFI-router's public IP addresses to ensure accuracy and avoid privacy issues.</p>
+      <p>With our in-door tracking device Cart-E, which is small, inexpensive, and energy-efficient, we can locate desired objects inside a building simply through accessing a website. This technology produces an affordable device with little maintenance requirement that provides detailed information about the object location in 3D space. This allows the user to be able to retrieve the object fast and easy.</p>
+    </article>
+  </section>
+
+  <footer>
+    <p>by Alga Peng, Xiangyi Zhao</p>
+  </footer>
+
+  </body>
+</html>
