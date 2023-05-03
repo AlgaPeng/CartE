@@ -62,19 +62,29 @@ function drawGame()
 
 	ctx.fillStyle = "#ff0000";
     ctx.fillText("Upson First Floor", 10, 20);
+	
 	ctx.fillText("West", 70, 110);
 	ctx.fillText("Study", 70, 125);
 	ctx.fillText("Corner", 70, 140);
-	// ctx.fillText("Room", 10, 480);
-	// ctx.fillText("Room 235", 200, 340);
-	// ctx.fillText("Room 237", 200, 400);
-	// ctx.fillText("Room 239", 200, 500);
+
 	ctx.fillText("Phillips Hall", 310, 20);
 	ctx.fillText("^", 340, 40);
 	ctx.fillText("|", 342, 45);
+
 	ctx.fillText("Rhodes Hall", 455, 560);
+
+	ctx.fillText("10040-1", 150, 265);
+	ctx.fillText("10040-2", 250, 265);
+	ctx.fillText("10041-1", 370, 265);
+	ctx.fillText("10041-2", 460, 265);
+
 	ctx.fillStyle = "#008080";
-    ctx.fillText("CART-HERE", 500, 20);
+	
+    ctx.fillText(CART0, LOCW0, LOCH0);
+	ctx.fillText(CART1, LOCW1, LOCH1);
+	ctx.fillText(CART2, LOCW2, LOCH2);
+	ctx.fillText(CART3, LOCW3, LOCH3);
+	ctx.fillText(CART4, LOCW4, LOCH4);
 	requestAnimationFrame(drawGame);
 }
 </script>

@@ -23,7 +23,7 @@ var phillipsMap = [
 	0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 	0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 	0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 ];
 var tileW = 30, tileH = 30;
@@ -67,8 +67,22 @@ function drawGame()
 	ctx.fillText("Room 235", 200, 340);
 	ctx.fillText("Room 237", 200, 400);
 	ctx.fillText("Room 239", 200, 500);
+	ctx.fillText("Room 219", 10, 250);
+	ctx.fillText("Room 203", 10, 80);
+	ctx.fillText("Room 232", 470, 230);
+	ctx.fillText("200-1", 60, 120);
+	ctx.fillText("200-2", 60, 200);
+	ctx.fillText("200-3", 300, 230);
+
+	ctx.fillText("Duffield/Upson", 90, 560);
+
 	ctx.fillStyle = "#008080";
-    ctx.fillText("CART-HERE", 10, 500);
+	
+    ctx.fillText(CART0, LOCW0, LOCH0);
+	ctx.fillText(CART1, LOCW1, LOCH1);
+	ctx.fillText(CART2, LOCW2, LOCH2);
+	ctx.fillText(CART3, LOCW3, LOCH3);
+	ctx.fillText(CART4, LOCW4, LOCH4);
 	requestAnimationFrame(drawGame);
 }
 </script>
