@@ -18,7 +18,7 @@ class Cart:
         self.data_file    = data_file
         self.history_file = history_file
 
-carts = ["94:E6:86:C4:2F:50","94:E6:86:C3:E0:0C"]
+carts = ["94:E6:86:C4:2F:50","94:E6:86:C3:E0:0C", "94:E6:86:C5:67:8C"]
 cart_list = [] 
 for i in range(len(carts)):
     cart_list.append(Cart(i, "./signals/" + carts[i]+"_wifi_signals.txt", "./history/"+carts[i]+"_history.txt"))
@@ -80,11 +80,13 @@ def display(floor):
     with open("./static/"+floor+"_template.html", "r") as template_f:
         with open ("./static/"+floor+"_map.html", "w") as out_f:
             tmp = template_f.read()
+            counter = 0
             for i in range(len(cart_list)):
                 if(floor == cart_list[i].floor):
-                    tmp = tmp.replace("CART"+str(i), '"CART'+str(i)+'-HERE"')
-                    tmp = tmp.replace("LOCW"+str(i), str(cart_list[i].locw[0]))
-                    tmp = tmp.replace("LOCH"+str(i), str(cart_list[i].loch[0]))
+                    tmp = tmp.replace("C"+str(counter), '"CART'+str(i)+'-HERE"')
+                    tmp = tmp.replace("LOCW"+str(counter), str(cart_list[i].locw[0]))
+                    tmp = tmp.replace("LOCH"+str(counter), str(cart_list[i].loch[0]))
+                    counter = counter + 1
             out_f.write(tmp)
         out_f.close()
     template_f.close()
@@ -112,7 +114,7 @@ def find_cart(mac_address):
     h = 0
     loc = "Phillips_238"
     floor = "not_found"
-    
+
     # Phillips 1st floor 
     if("94:B4:0F:E6:60:E" in mac_address):
         w = 260
@@ -193,6 +195,7 @@ def find_cart(mac_address):
         h = 240
         loc = "upson_10041-2/20041-2"
         floor = "u1"
+        print("HERE")
     
     elif("F0:5C:19:A9:5A:8" in mac_address):
         w = 350

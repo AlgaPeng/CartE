@@ -14,7 +14,7 @@ class Cart:
         self.time = deque()
         self.id = id
 
-carts = ["94:E6:86:C4:2F:50","94:E6:86:C3:E0:0C"]
+carts = ["94:E6:86:C4:2F:50","94:E6:86:C3:E0:0C", "94:E6:86:C5:67:8C"]
 cart_list = [] 
 for i in carts:
     cart_list.append(Cart(i))
