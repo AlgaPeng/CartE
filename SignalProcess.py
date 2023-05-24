@@ -18,7 +18,7 @@ class Cart:
         self.data_file    = data_file
         self.history_file = history_file
 
-carts = ["94:E6:86:C4:2F:50","94:E6:86:C3:E0:0C", "94:E6:86:C5:67:8C"]
+carts = ["94:E6:86:C4:2F:50","94:E6:86:C3:E0:0C", "94:E6:86:C5:67:8C", "94:E6:86:C4:21:CC"]
 cart_list = [] 
 for i in range(len(carts)):
     cart_list.append(Cart(i, "./signals/" + carts[i]+"_wifi_signals.txt", "./history/"+carts[i]+"_history.txt"))
@@ -166,7 +166,7 @@ def find_cart(mac_address):
         floor = "p2"
 
     elif("94:B4:0F:E6:44:E" in mac_address):
-        w = 30
+        w = 270
         h = 250
         loc = "Phillips_200-3"
         floor = "p2"

@@ -1,7 +1,10 @@
 from flask import Flask, request
 import os
 from collections import deque
-import time
+from datetime import datetime
+import pytz
+
+timeZ_Ny = pytz.timezone('America/New_York')
 
 # app = Flask(__name__)
 app = Flask(__name__, static_folder='static', static_url_path='')
@@ -14,7 +17,7 @@ class Cart:
         self.time = deque()
         self.id = id
 
-carts = ["94:E6:86:C4:2F:50","94:E6:86:C3:E0:0C", "94:E6:86:C5:67:8C"]
+carts = ["94:E6:86:C4:2F:50","94:E6:86:C3:E0:0C", "94:E6:86:C5:67:8C", "94:E6:86:C4:21:CC"]
 cart_list = [] 
 for i in carts:
     cart_list.append(Cart(i))
@@ -103,7 +106,9 @@ def store_signals(data):
         # record the current time
         if(len(curr_cart.time) == 10):
             curr_cart.time.pop()
-        curr_cart.time.appendleft(time.strftime('%l:%M%p %Z on %b %d, %Y'))
+        dt_Ny = datetime.now(timeZ_Ny)
+
+        curr_cart.time.appendleft(dt_Ny.strftime('%l:%M%p %Z on %b %d, %Y'))
 
         # check if there are any more address
         mac_idx = data_string.find('MAC:')
