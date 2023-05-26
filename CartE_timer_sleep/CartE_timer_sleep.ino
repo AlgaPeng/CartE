@@ -1,18 +1,16 @@
 /*
- *  Simple HTTP get webclient test
+ *  Timer Sleep
  */
 
 #include <WiFi.h>
 #include <HTTPClient.h>
-// #include <WiFiClient.h>
 
 #define uS_TO_S_FACTOR 1000000ULL  /* Conversion factor for micro seconds to seconds */
 #define ledPin 18
 #define vibration_sw 33
 #define BUTTON_PIN_BITMASK 0x200000000 // 2^33 in hex
-#define TIME_TO_SLEEP  60
+#define TIME_TO_SLEEP  900 // sleep for 15 minutes
 
-// RTC_DATA_ATTR int bootCount = 0;
 RTC_DATA_ATTR int prev_signal = -1;
 unsigned long countStart = 0;
 
@@ -44,7 +42,7 @@ String routers[30] = {"94:B4:0F:E6:35:A", "94:B4:0F:E6:45:C", "94:B4:0F:E6:44:E"
                     "F0:5C:19:A9:38:8", "F0:5C:19:A9:5C:A", "F0:5C:19:A9:59:A", "F0:5C:19:A9:59:C", "F0:5C:19:A9:59:8",
                     "F0:5C:19:A9:38:8", "F0:5C:19:A9:5A:8", "F0:5C:19:A9:31:2", "F0:5C:19:A9:32:0"};
                     
-String serverName = "http://connect.owendpersonal.com/data"; //"132.236.79.6:80/post";
+String serverName = "http://connect.owendpersonal.com/data";
 int MAX_signal = 30;
 int scan_size = 0;
 String MAC_scan[30] = {};
@@ -223,7 +221,6 @@ String WIFI_Scan()
     //  Serial.println();
   }
 
-  //  signals = signals + "MAC:" + WiFi.BSSIDstr(i) + " " + "dB:" + dBmtoPercentage(WiFi.RSSI(i))+ " ";
   signals = signals + "MAC:" + MAC_scan[max_index] + " " + "dB:" + (float)dB_accum_scan[max_index]/(float)dB_num_scan[max_index] + " " + "ESP:" + WiFi.macAddress();
   
   // save the signal to history table
@@ -241,7 +238,6 @@ String WIFI_Scan()
       if(signal_history[history_idx] == prev_signal){
         Serial.println("vibrate and prev siganl the same");
         sleep_mode = 1;
-        // enter_deep_sleep();
       }
     }
   }
